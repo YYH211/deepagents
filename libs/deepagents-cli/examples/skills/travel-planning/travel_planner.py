@@ -112,6 +112,9 @@ def recommend_destinations(
     str
         格式化的目的地推荐 (Formatted destination recommendations)
     """
+    if days <= 0:
+        return "❌ 错误：旅行天数必须大于0 (Error: Number of days must be greater than 0)"
+    
     recommendations = []
     interests = interests or []
     daily_budget = budget / days if budget else None
@@ -206,6 +209,9 @@ def generate_itinerary(
     str
         格式化的行程安排 (Formatted itinerary)
     """
+    if days <= 0:
+        return "❌ 错误：旅行天数必须大于0 (Error: Number of days must be greater than 0)"
+    
     interests = interests or ["文化", "美食", "景点"]
 
     # 查找目的地信息
@@ -323,6 +329,12 @@ def plan_budget(
     str
         格式化的预算规划 (Formatted budget plan)
     """
+    if days <= 0:
+        return "❌ 错误：旅行天数必须大于0 (Error: Number of days must be greater than 0)"
+    
+    if travelers <= 0:
+        return "❌ 错误：旅行人数必须大于0 (Error: Number of travelers must be greater than 0)"
+    
     # 查找目的地信息
     dest_info = None
     region = None
@@ -458,6 +470,9 @@ def recommend_attractions(
     str
         格式化的景点推荐 (Formatted attraction recommendations)
     """
+    if days <= 0:
+        return "❌ 错误：旅行天数必须大于0 (Error: Number of days must be greater than 0)"
+    
     # 查找目的地信息
     dest_info = None
     for region, destinations in DESTINATIONS.items():
